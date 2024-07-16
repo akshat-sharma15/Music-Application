@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password: root
+  host: localhost
+
+development:
+  <<: *default
+  database: music_dba
+
+test:
+  <<: *default
+  database: music_test
+
+production:
+  <<: *default
+  database: music_production
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
