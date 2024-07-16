@@ -1,7 +1,7 @@
 class PlaylistsController < ApplicationController
   before_action :find_playlist, only: [:show, :update, :delete]
   def all_playlists
-    @playlists = Playlist.all
+    @playlists = @current_user.Playlist.all
     if @playlists
       render json: @playlists
     else
@@ -11,7 +11,7 @@ class PlaylistsController < ApplicationController
 
   def create
     # debugger
-    @playlist = Playlist.create(name:params[:name])
+    @playlist = @current_user.playlists.create(name:params[:name])
     if(@playlist)
       render json:@playlist
     else
@@ -44,6 +44,6 @@ class PlaylistsController < ApplicationController
   end
   private
   def find_playlist
-    @playlist = Playlist.find_by(id:params[:id])
+    @playlist = @current_user.Playlist.find_by(id:params[:id])
   end
 end

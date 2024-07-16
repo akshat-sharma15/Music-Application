@@ -1,4 +1,5 @@
 class SongsController < ApplicationController
+
   def allsongs
     songs = Song.all
     if songs
@@ -52,7 +53,7 @@ class SongsController < ApplicationController
   private
   def song_params
     # debugger
-    params.permit(:name,:movie,:lyrics,:audio,:poster)
+    params.permit(:name,:movie,:lyrics,:audio,:poster,:artist_id)
   end
 
 end

@@ -13,7 +13,7 @@ mount Sidekiq::Web => '/sidekiq'
   }
   #users
   get "users", to: "user_profiles#allusers"
-  put "user/update/:id", to: "user_profiles#update"
+  put "user/update", to: "user_profiles#update"
   get "user/:id", to: "user_profiles#show"
   delete "user/delete/:id", to:"user_profiles#delete"
   
@@ -31,7 +31,12 @@ mount Sidekiq::Web => '/sidekiq'
   put "playlist/:id", to: "playlists#update"
   delete "playlist/:id", to: "playlists#delete"
 
-
+  #artist
+  post "artist", to: "artists#create"
+  get "artists", to: "artists#artists"
+  get "artist/:id", to: "artists#show"
+  put "artist/:id", to: "artists#update"
+  delete "artist/:id", to: "artists#delete"
   # devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

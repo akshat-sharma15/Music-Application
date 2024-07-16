@@ -312,7 +312,7 @@ Devise.setup do |config|
   # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # port ENV.fetch('PORT') { 3000 }
-  config.secret_key = ENV["fcc48fccb4657e28843d5144b6d120ce28bce5ac9ec188931f45a05b5902c57123c154538a38d9e580d63dc66283c052eeab1c11fb251e9ffab86e70dcc9fa6ec986e13a34c00c5c792445ef8b009002399e3ef1bb5cd0b2494f7532d57871a0dc541b06430bb0110054330744ef747033fa71e6baa1c872071c07aa8323e4ad"] if Rails.env.production?
+  # config.secret_key = ENV["fcc48fccb4657e28843d5144b6d120ce28bce5ac9ec188931f45a05b5902c57123c154538a38d9e580d63dc66283c052eeab1c11fb251e9ffab86e70dcc9fa6ec986e13a34c00c5c792445ef8b009002399e3ef1bb5cd0b2494f7532d57871a0dc541b06430bb0110054330744ef747033fa71e6baa1c872071c07aa8323e4ad"] if Rails.env.production?
 
   config.jwt do |jwt|
     jwt.secret = Rails.application.credentials.devise_jwt_secret_key!
@@ -322,7 +322,7 @@ Devise.setup do |config|
     jwt.revocation_requests = [
       ['DELETE', %r{^/logout$}]
     ]
-    jwt.expiration_time = 30.minutes.to_i
+    jwt.expiration_time = 60.minutes.to_i
   end
 
   ################### end ############################

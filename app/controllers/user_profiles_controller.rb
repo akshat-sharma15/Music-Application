@@ -1,4 +1,5 @@
 class UserProfilesController < ApplicationController
+    before_action :permit_action, only: [ :allusers, :delete]
     def create
       @user = User.new(user_params)
       if @user.save
@@ -8,7 +9,7 @@ class UserProfilesController < ApplicationController
       end
     end
     def update
-      @user = User.find(params[:id])
+      @user = @current_user
       if @user.update(user_params)
         render json:@user
       else
@@ -37,6 +38,6 @@ class UserProfilesController < ApplicationController
     private
     def user_params
        params.permit(:name,:email,:password,:role,:dob,:gender)
-    end
-  
+    end    
+    
 end
