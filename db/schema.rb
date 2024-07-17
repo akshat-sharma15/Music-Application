@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_16_112203) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_17_105534) do
   create_table "active_storage_attachments", charset: "utf8mb3", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -58,8 +58,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_16_112203) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "users_id", null: false
-    t.index ["users_id"], name: "index_playlists_on_users_id"
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_playlists_on_user_id"
   end
 
   create_table "songs", charset: "utf8mb3", force: :cascade do |t|
@@ -68,8 +68,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_16_112203) do
     t.text "lyrics"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "artist_id", null: false
-    t.index ["artist_id"], name: "index_songs_on_artist_id"
   end
 
   create_table "users", charset: "utf8mb3", force: :cascade do |t|

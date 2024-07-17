@@ -1,4 +1,5 @@
 class ArtistsController < ApplicationController
+  before_action :permit_action, only: [:update, :create, :delete]
   before_action:find_artist ,only: [:show, :update, :delete]
   def artistss
     artists = Artist.all

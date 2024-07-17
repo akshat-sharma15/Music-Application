@@ -14,7 +14,7 @@ mount Sidekiq::Web => '/sidekiq'
   #users
   get "users", to: "user_profiles#allusers"
   put "user/update", to: "user_profiles#update"
-  get "user/:id", to: "user_profiles#show"
+  get "user", to: "user_profiles#show"
   delete "user/delete/:id", to:"user_profiles#delete"
   
   #songs 
@@ -25,6 +25,7 @@ mount Sidekiq::Web => '/sidekiq'
   delete "song/delete/:id", to: "songs#delete"
 
   #playlist
+  post 'playlists/:id/add_songs', to: 'playlists#add_songs'
   post "playlist/new", to: "playlists#create"
   get "playlists", to: "playlists#all_playlists"
   get "playlist/:id", to: "playlists#show"

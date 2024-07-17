@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-
+  before_action :permit_action, only: [ :update, :delete, :create]
   def allsongs
     songs = Song.all
     if songs
